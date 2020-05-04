@@ -1,8 +1,8 @@
 //Converts an async reset into a sync reset lasting one clock pulse
 
 module reset_sync #(
-    INPUT_POLARITY=0,   //Active low
-    OUTPUT_POLARITY=1   //Active high
+    INPUT_POLARITY=1'b0,   //Active low
+    OUTPUT_POLARITY=1'b1   //Active high
 )(
     input logic async_reset_i, clk,
     output logic sync_reset_o
