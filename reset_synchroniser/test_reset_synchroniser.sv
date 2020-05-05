@@ -18,6 +18,8 @@ initial begin
     async_reset = 1;
     #10ns async_reset = 0;
     #10ns async_reset = 1;
+    #20ns async_reset = 0;
+    #60ns async_reset = 1;
 end
 
 always begin

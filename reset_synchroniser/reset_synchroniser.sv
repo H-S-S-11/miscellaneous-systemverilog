@@ -16,9 +16,13 @@ always_ff @(posedge clk, negedge async_reset) begin
     if(~async_reset) begin
         reset_sync[0] <= 1'b0;
     end else begin
-        reset_sync <= {reset_sync[1:0], 1'b1};
+        reset_sync[0] <= 1'b1;
     end
     
+end
+
+always_ff @(posedge clk) begin
+    reset_sync[2:1] <= reset_sync[1:0];    
 end
 
 assign sync_reset_o = reset_sync[2]^OUTPUT_POLARITY;
